@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Pagina no encontrada | Tienda Online</title>
+  <style>
+    :root{--bg:#f6fbff;--text:#071827;--muted:#52657a;--line:#d8e5f2;--blue:#005eff;--blue2:#0046c7;--cyan:#0bb7d8;--white:#fff}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 18% 14%,rgba(11,183,216,.22),transparent 31%),radial-gradient(circle at 82% 22%,rgba(0,94,255,.19),transparent 34%),linear-gradient(135deg,#fff 0%,var(--bg) 54%,#edf6ff 100%)}
+    main{min-height:100vh;display:grid;place-items:center;padding:30px}
+    .shell{width:min(100%,980px);display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:48px;align-items:center}
+    .mark{display:inline-flex;align-items:center;gap:10px;margin-bottom:30px;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72);color:var(--blue2);font-size:13px;font-weight:900}
+    .mark span{width:9px;height:9px;border-radius:999px;background:var(--cyan);box-shadow:0 0 0 6px rgba(11,183,216,.14)}
+    h1{margin:0;font-size:clamp(46px,8vw,96px);line-height:.9;letter-spacing:-.07em}
+    p{margin:24px 0 0;max-width:620px;color:var(--muted);font-size:clamp(17px,2vw,22px);line-height:1.55}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+    a.btn{display:inline-flex;min-height:52px;align-items:center;justify-content:center;padding:0 21px;border-radius:999px;text-decoration:none;font-weight:900;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+    a.btn:hover{transform:translateY(-2px)}
+    .primary{color:var(--white);background:var(--blue);box-shadow:0 18px 36px rgba(0,94,255,.22)}
+    .primary:hover{background:var(--blue2);box-shadow:0 22px 44px rgba(0,94,255,.28)}
+    .secondary{color:var(--text);background:rgba(255,255,255,.76);border:1px solid var(--line)}
+    .panel{position:relative;overflow:hidden;min-height:360px;padding:26px;border:1px solid rgba(0,94,255,.16);border-radius:34px;background:rgba(255,255,255,.72);box-shadow:0 30px 90px rgba(7,24,39,.12);backdrop-filter:blur(18px)}
+    .panel:before{content:"";position:absolute;right:-70px;top:-90px;width:210px;height:210px;border-radius:999px;background:linear-gradient(135deg,rgba(0,94,255,.18),rgba(11,183,216,.30))}
+    .code{display:grid;gap:12px;position:relative}
+    .line{height:14px;border-radius:999px;background:#dbe9f8}
+    .line:nth-child(1){width:54%;background:var(--blue)}.line:nth-child(2){width:88%}.line:nth-child(3){width:70%}.line:nth-child(4){width:94%;background:#bfd6f4}
+    .card{position:absolute;left:26px;right:26px;bottom:26px;padding:24px;border:1px solid var(--line);border-radius:24px;background:var(--white);box-shadow:0 18px 50px rgba(7,24,39,.10)}
+    .card strong{display:block;font-size:58px;line-height:1;letter-spacing:-.08em}
+    .card small{display:block;margin-top:10px;color:var(--muted);line-height:1.5}
+    .count{margin-top:18px;color:var(--muted);font-size:14px}
+    .count strong{color:var(--blue2)}
+    @media(max-width:760px){main{place-items:start center}.shell{grid-template-columns:1fr;gap:30px}.panel{min-height:300px}}
+  </style>
+</head>
+<body>
+  <main>
+    <section class="shell" aria-labelledby="not-found-title">
+      <div>
+        <div class="mark"><span></span> Error 404</div>
+        <h1 id="not-found-title">Esta pagina no existe.</h1>
+        <p>No hemos encontrado esta ruta dentro de Tienda Online. Puedes volver al inicio de la web o crear tu propio sitio con LuckyBase.</p>
+        <div class="actions">
+          <a class="btn primary" href="/">Volver al inicio</a>
+          <a class="btn secondary" href="https://builder.luckybase.es">Crear con LuckyBase</a>
+          <a class="btn secondary" href="https://luckybase.es">Ir a luckybase.es</a>
+        </div>
+        <div class="count">Volvemos al inicio en <strong id="countdown">10</strong> segundos.</div>
+      </div>
+      <aside class="panel" aria-hidden="true">
+        <div class="code"><span class="line"></span><span class="line"></span><span class="line"></span><span class="line"></span></div>
+        <div class="card"><strong>404</strong><small>Ruta no encontrada. Regresamos a la pagina principal.</small></div>
+      </aside>
+    </section>
+  </main>
+  <script>
+    (function(){
+      var redirects=[];
+      var path=String(window.location.pathname||'/').replace(//+$/,'')||'/';
+      var found=(redirects||[]).find(function(row){
+        var from=String(row && row.from || '').replace(//+$/,'')||'/';
+        return from===path;
+      });
+      if(found && found.to){
+        var target=String(found.to||'');
+        if(target.charAt(0)==='/' && 'https://tienda-online-alexcvch-a.luckybase.es'){
+          target='https://tienda-online-alexcvch-a.luckybase.es'+target;
+        }
+        window.location.replace(target);
+      }
+    }());
+    (function(){var n=10;var el=document.getElementById('countdown');var t=setInterval(function(){n-=1;if(el)el.textContent=String(Math.max(n,0));if(n<=0){clearInterval(t);window.location.href='/';}},1000);}());
+  </script>
+</body>
+</html>
